@@ -1,14 +1,20 @@
 package com.chenBright.algorithms;
 
-import com.chenBright.algorithms.chapter1_1.*;
+import edu.princeton.cs.algs4.StdIn;
+import edu.princeton.cs.algs4.StdOut;
 
 public class Main {
 
     public static void main(String[] args) {
-        Ex1_1_1.main();
-        Ex1_1_2.main();
-//        Ex1_1_3.main();
-//        Ex1_1_5.main();
-        Ex1_1_6.main();
+
+        StdOut.print("第几章？ ");
+        int chapter = StdIn.readInt();
+        StdOut.print("第几节？ ");
+        int section = StdIn.readInt();
+        StdOut.print("第几题？ ");
+        int question = StdIn.readInt();
+
+        Exercise exercise = new Exercise(chapter, section, question);
+        exercise.chooseQuestion();
     }
 }
