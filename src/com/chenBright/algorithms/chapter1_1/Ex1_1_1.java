@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
 public class Ex1_1_1 {
 
     public static void main() {
-        StdOut.println("1.1.1答案：");
+        StdOut.println("1.1.1 答案：");
         StdOut.println((0 + 15) / 2);
         StdOut.println(2.0e-6 * 100000000.1);
         StdOut.println(true && false || true && true);
