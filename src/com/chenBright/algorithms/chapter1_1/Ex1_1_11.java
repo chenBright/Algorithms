@@ -7,6 +7,7 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class Ex1_1_11 {
     public static void main() {
+        StdOut.println("1.1.11：");
         boolean[][] matrix = { { true, false, true }, { false, true, false }, { true, true, false } };
         printBooleanMatrix(matrix);
     }

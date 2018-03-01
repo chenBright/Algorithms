@@ -17,6 +17,7 @@ public class Ex1_1_13 {
         }
     }
     public static void main() {
+        StdOut.println("1.1.13：");
         int[][] a = { { 100, 200, 300 }, { 400, 500, 600 } };
         printTransposedMatrix(a);
     }
