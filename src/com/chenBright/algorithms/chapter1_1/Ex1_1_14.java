@@ -7,6 +7,12 @@ import edu.princeton.cs.algs4.StdOut;
  * Created by chenbright on 2018/3/1.
  */
 public class Ex1_1_14 {
+    /**
+     * 对数函数
+     * @param N 真数
+     * @param M 底数
+     * @return 对数
+     */
     public static int lg(int N, int M) {
         int index = 0;
         while (N >= M) {
