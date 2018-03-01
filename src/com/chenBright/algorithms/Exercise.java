@@ -76,6 +76,9 @@ public class Exercise {
             case 16:
                 Ex1_1_16.main();
                 break;
+            case 20:
+                Ex1_1_20.main();
+                break;
             default:
                 StdOut.printf("没有第 %d 题的答案！", question);
         }
