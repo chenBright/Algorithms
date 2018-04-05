@@ -9,6 +9,9 @@
 - 在书中是通过文件重定向的方式进行算法测试的, 在IDEA中通过以下代码进行文件重定向
 
 ```java
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 try {
         FileInputStream input = new FileInputStream("./algs4data/tinyT.txt");
         System.setIn(input);
