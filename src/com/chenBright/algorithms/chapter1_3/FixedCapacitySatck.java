@@ -71,7 +71,7 @@ import java.io.FileNotFoundException;
     }
 
     public static void main() {
-        FixedCapacitySatck<String> str = new FixedCapacitySatck(100);
+        FixedCapacitySatck<String> str = new FixedCapacitySatck<String>(100);
 
         try {
             FileInputStream input = new FileInputStream("./data/tobe.txt");
