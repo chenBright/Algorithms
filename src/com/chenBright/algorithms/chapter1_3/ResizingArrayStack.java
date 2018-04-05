@@ -93,11 +93,12 @@ public class ResizingArrayStack<Item> implements Iterable<Item> {
             return stack[--i];
         }
 
-        public void move() {}
+        @Override
+        public void remove() {}
     }
 
     public static void main() {
-        ResizingArrayStack<String> str = new ResizingArrayStack();
+        ResizingArrayStack<String> str = new ResizingArrayStack<String>();
 
         try {
             FileInputStream input = new FileInputStream("./data/tobe.txt");
