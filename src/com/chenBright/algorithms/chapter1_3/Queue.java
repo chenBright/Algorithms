@@ -41,19 +41,14 @@ public class Queue<Item> implements Iterable<Item> {
     }
 
     public Item dequeue() {
+        Node firstNode = head.next;
+        head.next = firstNode.next;
+        // 如果出队后为空队列，，尾结点和头结点为同一结点
         if (isEmpty()) {
-            return null;
+            tail = head;
         }
-        else {
-            Node firstNode = head.next;
-            head.next = firstNode.next;
-            // 如果出队后为空队列，，尾结点和头结点为同一结点
-            if (isEmpty()) {
-                tail = head;
-            }
-            number--;
-            return firstNode.item;
-        }
+        number--;
+        return firstNode.item;
     }
     public Iterator<Item> iterator() {
         return new ListIterator();
