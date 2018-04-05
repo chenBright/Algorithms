@@ -41,9 +41,6 @@ public class FixedCapacityStackOfStrings {
      * @return 被删除的字符串
      */
     public String pop() {
-        if (isEmpty()) {
-            StdOut.println("空栈！");
-        }
         return stack[--number];
     }
 
