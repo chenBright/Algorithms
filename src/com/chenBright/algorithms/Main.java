@@ -11,6 +11,6 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        Parenthess.main();
+        TransformInfix.main();
     }
 }

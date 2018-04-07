@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class Parenthess {
     public static void main() {
-        ListStack<String> stack = new ListStack<String>();
+        LinkedStack<String> stack = new LinkedStack<String>();
         String str = StdIn.readString();
         String[] parenthesis = str.split("");
 

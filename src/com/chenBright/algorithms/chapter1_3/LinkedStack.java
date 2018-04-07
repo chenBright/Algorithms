@@ -6,7 +6,7 @@ import java.util.Iterator;
  * Created by chenbright on 2018/4/5.
  * 链栈
  */
-public class ListStack<Item> implements Iterable<Item> {
+public class LinkedStack<Item> implements Iterable<Item> {
     private Node head; // 头结点
     private int number; // 结点个数
 
@@ -18,7 +18,7 @@ public class ListStack<Item> implements Iterable<Item> {
     /**
      * 创建带头结点的空栈
      */
-    public ListStack() {
+    public LinkedStack() {
         head = new Node();
         head.next = null;
         number = 0;
@@ -38,6 +38,14 @@ public class ListStack<Item> implements Iterable<Item> {
      */
     public int size() {
         return number;
+    }
+
+    /**
+     * 返回栈中最近添加的元素（而不弹出他）
+     * @return 元素
+     */
+    public Item peek() {
+        return head.next.item;
     }
 
     /**
