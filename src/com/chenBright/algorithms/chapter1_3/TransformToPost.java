@@ -7,8 +7,8 @@ import edu.princeton.cs.algs4.StdOut;
  * Created by chenbright on 2018/4/7.
  * 转换中序表达式
  */
-public class TransformInfix {
-    public static void transformToPostfix(String expression) {
+public class TransformToPost {
+    public static void transform(String expression) {
         LinkedStack<String> operatorStack = new LinkedStack<String>();
         String[] expressions = expression.split("");
         int len = expressions.length;
@@ -75,6 +75,6 @@ public class TransformInfix {
 
     public static void main() {
         String expression = StdIn.readString();
-        transformToPostfix(expression);
+        transform(expression);
     }
 }
