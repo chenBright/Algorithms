@@ -9,8 +9,8 @@ import edu.princeton.cs.algs4.StdOut;
  */
 public class Evalute {
     public static void main() {
-        ListStack<String> ops = new ListStack<String>();
-        ListStack<Double> vals = new ListStack<Double>();
+        LinkedStack<String> ops = new LinkedStack<String>();
+        LinkedStack<Double> vals = new LinkedStack<Double>();
         while (!StdIn.isEmpty()) {
             String s = StdIn.readString();
             if (s.equals("("));
