@@ -16,14 +16,26 @@ public class RandomBag<Item> implements Iterable<Item> {
         number = 0;
     }
 
+    /**
+     * 背包是否为空
+     * @return true / false
+     */
    public boolean isEmpty() {
         return number == 0;
    }
 
+    /**
+     * 背包中元素数量
+     * @return 数量
+     */
    public int size() {
         return number;
    }
 
+    /**
+     * 添加元素
+     * @param item 元素
+     */
    public void add(Item item) {
         if (number == bag.length) {
             resize(2 * bag.length);
@@ -31,6 +43,10 @@ public class RandomBag<Item> implements Iterable<Item> {
         bag[number++] = item;
    }
 
+    /**
+     * 调整数组大小
+     * @param max 数组长度
+     */
    private void resize(int max) {
         Item[] temp = (Item[]) new Object[max];
         for (int i = 0; i < number; i++) {
@@ -44,12 +60,14 @@ public class RandomBag<Item> implements Iterable<Item> {
    }
 
     private class RandomBagIterator implements Iterator<Item> {
-        private int seq[] = new int[number];
+        private int seq[] = new int[number]; // 包含迭代时索引值的数组
         private int index = 0;
 
         public RandomBagIterator() {
-            for (int i = 0; i < seq.length; i++)
+            for (int i = 0; i < seq.length; i++) {
                 seq[i] = i;
+            }
+            // 打乱数组，达到随机访问的目的
             StdRandom.shuffle(seq);
         }
 
