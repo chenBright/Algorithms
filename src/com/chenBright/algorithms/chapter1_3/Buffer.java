@@ -10,25 +10,51 @@ public class Buffer implements Iterable {
     LinkedStack<Character> front = new LinkedStack<Character>();
     LinkedStack<Character> after = new LinkedStack<Character>();
 
+    /**
+     * 缓冲区的字符数量
+     * @return 数量
+     */
     public int size() {
         return front.size() + after.size();
     }
 
+    /**
+     * 在光标位置插入字符
+     * @param c 插入的字符
+     */
     public void insert(Character c) {
         front.push(c);
     }
 
+    /**
+     * 删除并返回光标位置的字符
+     * @return
+     */
     public char delete() {
         return front.pop();
     }
 
+    /**
+     * 将光标向左移动k个位置
+     * @param k 单位
+     */
     public void left(int k) {
-        if(k>=front.size()) return;
-        for(int i = 0; i < k; i++)
+        if(k >= front.size()) {
+            return;
+        }
+        for(int i = 0; i < k; i++) {
             after.push(front.pop());
+        }
     }
+
+    /**
+     * 将光标向右移动k个位置
+     * @param k 单位
+     */
     public void right(int k) {
-        if(k>after.size()) return;
+        if(k > after.size()) {
+            return;
+        }
         for(int i = 0; i < k; i++) {
             front.push(after.pop());
         }
@@ -39,8 +65,6 @@ public class Buffer implements Iterable {
         return new BufferIterator();
     }
     private class BufferIterator implements Iterator{
-
-
         Iterator<Character> it;
         public BufferIterator(){
             LinkedStack<Character> afterTemp = new LinkedStack<Character>();
@@ -73,24 +97,27 @@ public class Buffer implements Iterable {
     }
 
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
         Buffer b = new Buffer();
         String s = "Hellow word!";
-        for(int i=0;i<s.length();i++){
+        for(int i = 0;i < s.length(); i++){
             b.insert(s.charAt(i));
         }
-        for(Object c:b)
+        for(Object c : b) {
             StdOut.print(c);
+        }
         StdOut.println();
         b.left(6);
         b.delete();
-        for(Object c:b)
+        for(Object c : b) {
             StdOut.print(c);
+        }
         StdOut.println();
         b.right(4);
         b.insert('l');
-        for(Object c:b)
+        for(Object c : b) {
             StdOut.print(c);
+
+        }
         StdOut.println();
     }
 }
