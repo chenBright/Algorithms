@@ -23,19 +23,23 @@ public class Buffer implements Iterable {
     }
 
     public void left(int k) {
-        if(k>=front.size()) return;
-        for(int i = 0; i < k; i++)
+        if(k >= front.size()) {
+            return;
+        }
+        for(int i = 0; i < k; i++) {
             after.push(front.pop());
+        }
     }
     public void right(int k) {
-        if(k>after.size()) return;
+        if(k>after.size()) {
+            return;
+        }
         for(int i = 0; i < k; i++) {
             front.push(after.pop());
         }
     }
 
     public Iterator iterator() {
-        // TODO Auto-generated method stub
         return new BufferIterator();
     }
     private class BufferIterator implements Iterator{
