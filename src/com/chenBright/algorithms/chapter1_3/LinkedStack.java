@@ -1,6 +1,8 @@
 package com.chenBright.algorithms.chapter1_3;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.ConcurrentModificationException;
 
 /**
  * Created by chenbright on 2018/4/5.
@@ -9,6 +11,7 @@ import java.util.Iterator;
 public class LinkedStack<Item> implements Iterable<Item> {
     private Node head; // 头结点
     private int number; // 结点个数
+    private int operates;
 
     public class Node {
         Item item;
@@ -45,6 +48,9 @@ public class LinkedStack<Item> implements Iterable<Item> {
      * @return 元素
      */
     public Item peek() {
+        if (isEmpty()) {
+            throw new NoSuchElementException("Stack underflow");
+        }
         return head.next.item;
     }
 
@@ -77,14 +83,21 @@ public class LinkedStack<Item> implements Iterable<Item> {
 
     private class ListIterator implements Iterator<Item> {
         private Node current = head.next;
+        private int count = operates;
 
         @Override
         public boolean hasNext() {
+            if (count != operates) {
+                throw new ConcurrentModificationException();
+            }
             return current == null;
         }
 
         @Override
         public Item next() {
+            if (count != operates) {
+                throw new ConcurrentModificationException();
+            }
             Item item = current.item;
             current = current.next;
             return item;
