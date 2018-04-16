@@ -12,6 +12,6 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        DoublingRatio.main();
+        Ex1_4_18.main();
     }
 }
