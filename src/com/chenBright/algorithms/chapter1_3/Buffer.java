@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by chenbright on 2018/4/14.
+ * 文本编辑器的缓冲区
  */
 public class Buffer implements Iterable {
     LinkedStack<Character> front = new LinkedStack<Character>();
@@ -61,7 +62,6 @@ public class Buffer implements Iterable {
     }
 
     public Iterator iterator() {
-        // TODO Auto-generated method stub
         return new BufferIterator();
     }
     private class BufferIterator implements Iterator{
