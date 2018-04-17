@@ -20,7 +20,7 @@ public class Ex1_4_18 {
         int high = arr.length - 1;
         int mid = (low + high) / 2;
 
-        while (low < high) {
+        while (low <= high) {
             if (arr[mid - 1] > arr[mid] && arr[mid + 1] > arr[mid]) {
                 return mid;
             }
