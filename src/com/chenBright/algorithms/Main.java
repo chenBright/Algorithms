@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        Ex1_4_20.main();
+        Ex1_4_22.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
