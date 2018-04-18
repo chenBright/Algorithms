@@ -2,7 +2,6 @@ package com.chenBright.algorithms.chapter1_4;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
