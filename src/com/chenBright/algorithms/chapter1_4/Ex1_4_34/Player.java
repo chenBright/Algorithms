@@ -4,6 +4,7 @@ import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by chenbright on 2018/4/18.
+ * https://www.cnblogs.com/ikesnowy/p/7467994.html
  */
 public class Player {
     private static GuessResult guessResult = new GuessResult();
@@ -29,6 +30,55 @@ public class Player {
             else {
                 low = mid;
             }
+        }
+        return -1;
+    }
+
+    public static int playGameB(Game game) {
+        int low = 1;
+        int high = game.max();
+        boolean isRightSide = true;
+
+        int result = game.guess(1);
+        if (result == guessResult.equal) {
+            return 1;
+        }
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int currentGuess = (low + high) - game.getLastGuess();
+
+            result = game.guess(currentGuess);
+            if (result == guessResult.equal) {
+                return currentGuess;
+            }
+           else if (result == guessResult.hot) {
+                if (isRightSide) {
+                    low = mid;
+                }
+                else {
+                    high = mid;
+                }
+            }
+            else {
+                if (isRightSide) {
+                    high = mid;
+                }
+                else {
+                    low = mid;
+                }
+            }
+            isRightSide = !isRightSide;
+            if (high - low <= 1) {
+                break;
+            }
+        }
+
+        if (game.guess(low) == guessResult.equal) {
+            return low;
+        }
+        else if (game.guess(high) == guessResult.equal) {
+            return high;
         }
         return -1;
     }

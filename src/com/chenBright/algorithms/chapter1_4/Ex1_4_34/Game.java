@@ -58,4 +58,8 @@ public class Game {
     public int max() {
         return range;
     }
+
+    public int getLastGuess() {
+        return lastGuess;
+    }
 }
