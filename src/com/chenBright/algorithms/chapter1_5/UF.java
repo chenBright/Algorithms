@@ -3,6 +3,9 @@ package com.chenBright.algorithms.chapter1_5;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 /**
  * Created by chenbright on 2018/4/19.
  */
@@ -66,7 +69,14 @@ public class UF {
         count--;
     }
 
-    public static void main(String[] args) {
+    public static void main() {
+        String[] files = {"./data/tinyUF.txt", "./data/largeUF.txt"};
+        try {
+            FileInputStream input = new FileInputStream(files[1]);
+            System.setIn(input);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         int N = StdIn.readInt();
         UF uf = new UF(N);
         while (!StdIn.isEmpty()) {
@@ -78,6 +88,6 @@ public class UF {
             uf.union(p, q);
             StdOut.println(p + " " + q);
         }
-        StdOut.println(uf.count() + " components");
+        StdOut.println(uf.count() + " 个连通分量");
     }
 }
