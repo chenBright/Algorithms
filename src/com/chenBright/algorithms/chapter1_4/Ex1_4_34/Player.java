@@ -86,6 +86,9 @@ public class Player {
     public static void main() {
         Game game = new Game(1000);
         int result = playGameA(game);
-        StdOut.println("秘密数字为：" + result);
+        StdOut.println("（方案一）秘密数字为：" + result);
+        game.restart();
+        result = playGameB(game);
+        StdOut.println("（方案二）秘密数字为：" + result);
     }
 }
