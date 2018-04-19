@@ -1,5 +1,6 @@
 package com.chenBright.algorithms;
 
+import com.chenBright.algorithms.chapter1_4.Ex1_4_34.Player;
 import edu.princeton.cs.algs4.StdOut;
 
 import com.chenBright.algorithms.chapter1_1.*;
@@ -12,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        Ex1_4_22.main();
+        Player.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
