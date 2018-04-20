@@ -9,11 +9,11 @@ import java.io.FileNotFoundException;
 /**
  * Created by chenbright on 2018/4/19.
  */
-public class UF {
+public class QuickFindUF {
     private int[] id; // 分量id
     private int count; // 分量数量
 
-    public UF(int N) {
+    public QuickFindUF(int N) {
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++) {
@@ -78,16 +78,16 @@ public class UF {
             e.printStackTrace();
         }
         int N = StdIn.readInt();
-        UF uf = new UF(N);
+        QuickFindUF quickFindUf = new QuickFindUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) {
+            if (quickFindUf.connected(p, q)) {
                 continue;
             }
-            uf.union(p, q);
+            quickFindUf.union(p, q);
             StdOut.println(p + " " + q);
         }
-        StdOut.println(uf.count() + " 个连通分量");
+        StdOut.println(quickFindUf.count() + " 个连通分量");
     }
 }

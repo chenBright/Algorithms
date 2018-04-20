@@ -82,22 +82,22 @@ public class WeightedQuickUnionUF {
     public static void main() {
         String[] files = {"./data/tinyUF.txt", "./data/largeUF.txt"};
         try {
-            FileInputStream input = new FileInputStream(files[0]);
+            FileInputStream input = new FileInputStream(files[1]);
             System.setIn(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         int N = StdIn.readInt();
-        UF uf = new UF(N);
+        WeightedQuickUnionUF weightedQuickUnionUF = new WeightedQuickUnionUF(N);
         while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (uf.connected(p, q)) {
+            if (weightedQuickUnionUF.connected(p, q)) {
                 continue;
             }
-            uf.union(p, q);
+            weightedQuickUnionUF.union(p, q);
             StdOut.println(p + " " + q);
         }
-        StdOut.println(uf.count() + " 个连通分量");
+        StdOut.println(weightedQuickUnionUF.count() + " 个连通分量");
     }
 }
