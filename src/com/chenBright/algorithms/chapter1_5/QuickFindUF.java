@@ -70,7 +70,7 @@ public class QuickFindUF {
     }
 
     public static void main() {
-        String[] files = {"./data/tinyUF.txt", "./data/largeUF.txt"};
+        String[] files = {"./data/tinyUF.txt", "mediumUF.txt", "./data/largeUF.txt"};
         try {
             FileInputStream input = new FileInputStream(files[1]);
             System.setIn(input);

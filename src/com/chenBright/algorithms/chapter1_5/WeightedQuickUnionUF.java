@@ -80,9 +80,9 @@ public class WeightedQuickUnionUF {
     }
 
     public static void main() {
-        String[] files = {"./data/tinyUF.txt", "./data/largeUF.txt"};
+        String[] files = {"./data/tinyUF.txt", "mediumUF.txt", "./data/largeUF.txt"};
         try {
-            FileInputStream input = new FileInputStream(files[1]);
+            FileInputStream input = new FileInputStream(files[2]);
             System.setIn(input);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
