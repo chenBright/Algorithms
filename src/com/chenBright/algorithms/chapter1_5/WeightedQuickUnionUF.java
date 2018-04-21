@@ -10,9 +10,9 @@ import java.io.FileNotFoundException;
  * Created by chenbright on 2018/4/20.
  */
 public class WeightedQuickUnionUF {
-    private int[] id; // 分量id
-    private int[] sz; // 各个根结点所对应的分量的数量
-    private int count; // 分量数量
+    protected int[] id; // 分量id
+    protected int[] sz; // 各个根结点所对应的分量的数量
+    protected int count; // 分量数量
 
     public WeightedQuickUnionUF(int N) {
         count = N;
