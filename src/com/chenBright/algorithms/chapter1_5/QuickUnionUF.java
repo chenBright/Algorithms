@@ -10,8 +10,8 @@ import java.io.FileNotFoundException;
  * Created by chenbright on 2018/4/20.
  */
 public class QuickUnionUF {
-    private int[] id; // 分量id
-    private int count; // 分量数量
+    protected int[] id; // 分量id
+    protected int count; // 分量数量
 
     public QuickUnionUF(int N) {
         count = N;
