@@ -9,7 +9,7 @@ import java.awt.*;
 /**
  * Created by chenbright on 2018/4/22.
  */
-public class Selection {
+public class Selection extends BaseSort {
     public static void sort(Comparable[] arr) {
         int len = arr.length;
         for (int i = 0; i < len - 1; i++) {
@@ -21,32 +21,6 @@ public class Selection {
             }
             exch(arr, i, min);
         }
-    }
-
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
-
-    private static void exch(Comparable[] arr, int i, int j) {
-        Comparable temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-    }
-
-    private static void show(Comparable[] arr) {
-        for (int i = 0; i < arr.length; i++) {
-            StdOut.print(arr[i] + " ");
-        }
-        StdOut.println();
-    }
-
-    private static boolean isSorted(Comparable[] arr) {
-        for (int i = 1; i < arr.length; i++) {
-            if (less(arr[i], arr[i - 1])) {
-                return false;
-            }
-        }
-        return true;
     }
 
     /**
