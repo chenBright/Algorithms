@@ -8,10 +8,14 @@ import edu.princeton.cs.algs4.StdOut;
 public class Shell extends BaseSort {
     public static void sort(Comparable[] a) {
         int len = a.length;
-        for (int shellLength = len / 2; shellLength > 0; shellLength /= 2) {
-            for (int i = shellLength; i < len; i++) {
-                for (int j = i; j >= shellLength && less(a[j], a[j - shellLength]); j -= shellLength) {
-                        exch(a, j, j - shellLength);
+        int h = 1;
+        while (h < len / 3) {
+            h = 3 * h + 1;
+        }
+        for (; h > 0; h /= 3) {
+            for (int i = h; i < len; i++) {
+                for (int j = i; j >= h && less(a[j], a[j - h]); j -= h) {
+                        exch(a, j, j - h);
                 }
             }
         }
