@@ -13,10 +13,12 @@ public class Ex2_2_10 extends BaseSort {
         for (int k = low; k <= mid; k++) {
             aux[k] = a[k];
         }
+        // 右半边逆序存储
         for (int k = mid + 1; k <= high; k++) {
             aux[k] = a[high + mid + 1 - k];
         }
         for (int k = low; k <= high; k++) {
+            // 分别用左右半边的最小值比较
             if (less(aux[j], aux[i])) {
                 a[k] = aux[j--];
             } else {
