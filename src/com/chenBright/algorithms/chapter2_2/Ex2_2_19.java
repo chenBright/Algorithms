@@ -29,13 +29,13 @@ public class Ex2_2_19 extends BaseMergeSort {
         return count(a, 0, a.length - 1, 0);
     }
 
-    private static int count(Comparable[] a, int lo, int hi, int inversions) {
-        if (hi <= lo) {
+    private static int count(Comparable[] a, int low, int high, int inversions) {
+        if (high <= low) {
             return inversions;
         }
-        int mid = lo + (hi - lo) / 2;
-        inversions = count(a, lo, mid, inversions);
-        inversions = count(a, mid + 1, hi, inversions);
-        return merge(a, lo, mid, hi, inversions);
+        int mid = low + (high - low) / 2;
+        inversions = count(a, low, mid, inversions);
+        inversions = count(a, mid + 1, high, inversions);
+        return merge(a, low, mid, high, inversions);
     }
 }
