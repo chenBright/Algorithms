@@ -5,11 +5,12 @@ import edu.princeton.cs.algs4.StdOut;
 
 /**
  * Created by chenbright on 2018/5/2.
+ * 习题2.3.22 快速三向切分
  */
 public class Ex2_3_22 {
-
+    // 小于等于该值是，采用插入排序
     private static final int INSERTION_SORT_CUTOFF = 8;
-
+    // 小于等于该值，不采用Tukey's ninther方法找切分元素
     private static final int MEDIAN_OF_3_CUTOFF = 40;
 
     public static void sort(Comparable[] a) {
@@ -30,6 +31,7 @@ public class Ex2_3_22 {
         }
 
         else  {
+            // Tukey's ninther 方法，找切分元素
             int eps = n/8;
             int mid = lo + n/2;
             int m1 = median3(a, lo, lo + eps, lo + eps + eps);
@@ -43,8 +45,10 @@ public class Ex2_3_22 {
         int p = lo, q = hi+1;
         Comparable v = a[lo];
         while (true) {
+            // 向右扫描，找到第一个不小于切分元素的元素
             while (less(a[++i], v))
                 if (i == hi) break;
+            // 向左扫描，找到第一个不大于切分元素的元素
             while (less(v, a[--j]))
                 if (j == lo) break;
 
@@ -76,6 +80,7 @@ public class Ex2_3_22 {
     }
 
 
+    // 找出中位数
     private static int median3(Comparable[] a, int i, int j, int k) {
         return (less(a[i], a[j]) ?
                 (less(a[j], a[k]) ? j : less(a[i], a[k]) ? k : i) :
@@ -87,6 +92,7 @@ public class Ex2_3_22 {
         return v.compareTo(w) < 0;
     }
 
+    // v 和 w 是否相等
     private static boolean eq(Comparable v, Comparable w) {
         if (v == w) return true;
         return v.compareTo(w) == 0;
@@ -111,8 +117,8 @@ public class Ex2_3_22 {
         }
     }
 
-    public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+    public static void main() {
+        Integer[] a = {9, 4, 2, 8, 7, 1};
         Ex2_3_22.sort(a);
         assert isSorted(a);
         show(a);

@@ -10,13 +10,14 @@ import com.chenBright.algorithms.chapter1_4.*;
 import com.chenBright.algorithms.chapter1_5.*;
 import com.chenBright.algorithms.chapter2_1.*;
 import com.chenBright.algorithms.chapter2_2.*;
+import com.chenBright.algorithms.chapter2_3.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        Ex2_2_20.main();
+        Ex2_3_22.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
