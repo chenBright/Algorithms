@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 try {
-        FileInputStream input = new FileInputStream("./algs4data/tinyT.txt");
+        FileInputStream input = new FileInputStream("./data/tinyT.txt");
         System.setIn(input);
 } catch (FileNotFoundException e) {
         e.printStackTrace();
