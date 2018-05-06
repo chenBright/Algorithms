@@ -52,7 +52,7 @@ public class MaxPQ<Key extends Comparable<Key>> {
      * @param k 下沉第k个结点
      */
     private void sink(int k) {
-        while (k * 2 >= N) {
+        while (k * 2 <= N) {
             int j = k * 2;
             // 找到最大的子结点
             if (j < N && less(j, j + 1)) {
