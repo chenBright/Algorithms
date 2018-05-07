@@ -6,6 +6,7 @@ package com.chenBright.algorithms.chapter2_4;
 public class MaxPQ<Key extends Comparable<Key>> {
     private Key[] pq;
     private int N = 0;
+    private Key min;
 
     public MaxPQ(int MaxN) {
         pq = (Key[]) new Comparable[MaxN + 1];
@@ -20,6 +21,11 @@ public class MaxPQ<Key extends Comparable<Key>> {
     }
 
     public void insert(Key v) {
+        // 记录最小值
+        if (isEmpty() || v.compareTo(min) < 0) {
+            min = v;
+        }
+
         pq[++N] = v;
         swim(N);
     }
@@ -34,6 +40,10 @@ public class MaxPQ<Key extends Comparable<Key>> {
         pq[N + 1] = null; // 防止对象游离
         sink(1);
         return max;
+    }
+
+    public Key min() {
+        return min;
     }
 
     /**
