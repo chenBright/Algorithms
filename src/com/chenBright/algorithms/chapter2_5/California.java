@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdIn;
 import java.util.Arrays;
 import java.util.Comparator;
 
+// 习题2.5.16
 public class California {
     public static class CandidateComparator implements Comparator<String> {
         private static final String ORDER = "RWQOJMVAHBSGZXNTCIEKUPDYFL";

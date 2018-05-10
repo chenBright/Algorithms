@@ -15,6 +15,9 @@ public class Ex2_2_19 extends BaseMergeSort {
             }
             else if (j > high) {
                 a[k] = aux[i++];
+            }
+            else if (less(aux[j], aux[i])) {
+                a[k] = aux[j++];
                 inversions += j - k - 1;
             }
             else {
