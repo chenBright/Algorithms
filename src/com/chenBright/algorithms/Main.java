@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        SPT.main();
+        LPT.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
