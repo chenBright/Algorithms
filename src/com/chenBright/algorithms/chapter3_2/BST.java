@@ -31,6 +31,18 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
     }
 
+    public int height() {
+        return height(root);
+    }
+
+    private int height(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        // 最高子树 + 1（本结点的一层）
+        return Math.max(height(node.left), height(node.right)) + 1;
+    }
+
     public Value get(Key key) {
         return get(root, key);
     }
