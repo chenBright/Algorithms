@@ -16,6 +16,7 @@ import com.chenBright.algorithms.chapter2_4.*;
 import com.chenBright.algorithms.chapter2_5.*;
 
 import com.chenBright.algorithms.chapter3_1.*;
+import com.chenBright.algorithms.chapter3_2.*;
 
 public class Main {
 
