@@ -30,7 +30,8 @@ public class BST<Key extends Comparable<Key>, Value> {
             return node.n;
         }
     }
-
+    
+    // 习题3.2.6
     public int height() {
         return height(root);
     }
