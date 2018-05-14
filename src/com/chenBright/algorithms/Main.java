@@ -23,7 +23,7 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        FrequencyCounter.main();
+        Ex3_2_25.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
