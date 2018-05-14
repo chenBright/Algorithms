@@ -313,4 +313,27 @@ public class BST<Key extends Comparable<Key>, Value> {
         }
         return isBST(x.left, min, x.key) && isBST(x.right, x.key, max);
     }
+
+    // 习题3.3.33
+    private boolean isRankConsistent() {
+        for (int i = 0; i < size(); i++)
+            if (i != rank(select(i))) return false;
+        for (Key key : keys())
+            if (key.compareTo(select(rank(key))) != 0) return false;
+        return true;
+    }
+
+    private boolean isSizeConsistent() {
+        return isSizeConsistent(root);
+    }
+
+    private boolean isSizeConsistent(Node node) {
+        if (node == null) {
+            return true;
+        }
+        if (node.n != size(node.left) + size(node.right) + 1) {
+            return false;
+        }
+        return isSizeConsistent(node.left) && isSizeConsistent(node.right);
+    }
 }
