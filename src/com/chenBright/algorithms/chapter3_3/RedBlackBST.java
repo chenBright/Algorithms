@@ -67,8 +67,30 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         return x.N;
     }
 
+    public Key min() {
+        return min(root).key;
+    }
+
+    private Node min(Node x) {
+        if (x.left == null) return x;
+        else                return min(x.left);
+    }
+
+    public Key max() {
+        return max(root).key;
+    }
+
+    private Node max(Node x) {
+        if (x.right == null) return x;
+        else                 return max(x.right);
+    }
+
     public boolean isEmpty() {
         return root == null;
+    }
+
+    public boolean contains(Key key) {
+        return get(key) != null;
     }
 
     public Value get(Key key) {
@@ -121,6 +143,126 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
         if (isRed(h.left) && isRed(h.right)) {
             flipColors(h);
         }
+        h.N = size(h.left) + size(h.right) + 1;
+        return h;
+    }
+
+    public void deleteMin() {
+        if (!isRed(root.left) && isRed(root.right)) {
+            root.color = RED;
+        }
+
+        root = deleteMin(root);
+        if (!isEmpty()) {
+            root.color = BLACK;
+        }
+    }
+
+    private Node deleteMin(Node h) {
+        if (h.left == null) {
+            return null;
+        }
+
+        if (!isRed(h.left) && !isRed(h.left.left)) {
+            h = moveRedLeft(h);
+        }
+
+        h.left = deleteMin(h.left);
+        return balance(h);
+    }
+
+    public void deleteMax() {
+        if (!isRed(root.left) && !isRed(root.right)) {
+            root.color = RED;
+        }
+
+        root = deleteMax(root);
+        if (!isEmpty()) root.color = BLACK;
+    }
+
+    private Node deleteMax(Node h) {
+        if (isRed(h.left)) {
+            h = rotateRight(h);
+        }
+
+        if (h.right == null) {
+            return null;
+        }
+
+        if (!isRed(h.right) && !isRed(h.right.left)) {
+            h = moveRedRight(h);
+        }
+
+        h.right = deleteMax(h.right);
+
+        return balance(h);
+    }
+
+    public void delete(Key key) {
+        if (!contains(key)) {
+            return;
+        }
+
+        if (!isRed(root.left) && !isRed(root.right))
+            root.color = RED;
+
+        root = delete(root, key);
+        if (!isEmpty()) root.color = BLACK;
+    }
+
+    private Node delete(Node h, Key key) {
+        if (key.compareTo(h.key) < 0)  {
+            if (!isRed(h.left) && !isRed(h.left.left))
+                h = moveRedLeft(h);
+            h.left = delete(h.left, key);
+        }
+        else {
+            if (isRed(h.left))
+                h = rotateRight(h);
+            if (key.compareTo(h.key) == 0 && (h.right == null))
+                return null;
+            if (!isRed(h.right) && !isRed(h.right.left))
+                h = moveRedRight(h);
+            if (key.compareTo(h.key) == 0) {
+                Node x = min(h.right);
+                h.key = x.key;
+                h.val = x.val;
+                h.right = deleteMin(h.right);
+            }
+            else h.right = delete(h.right, key);
+        }
+        return balance(h);
+    }
+
+    private Node moveRedLeft(Node h) {
+        if (isRed(h.right.left)) {
+            h.right = rotateRight(h.right);
+            h = rotateLeft(h);
+            flipColors(h);
+        }
+        return h;
+    }
+
+    private Node moveRedRight(Node h) {
+        flipColors(h);
+        if (isRed(h.left.left)) {
+            h = rotateRight(h);
+            flipColors(h);
+        }
+        return h;
+    }
+
+    private Node balance(Node h) {
+        if (isRed(h.right)) {
+            h = rotateLeft(h);
+        }
+        if (isRed(h.left) && isRed(h.left.left)) {
+            h = rotateRight(h);
+        }
+        if (isRed(h.left) && isRed(h.right)) {
+            flipColors(h);
+        }
+
         h.N = size(h.left) + size(h.right) + 1;
         return h;
     }
