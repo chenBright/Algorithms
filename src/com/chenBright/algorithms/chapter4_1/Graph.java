@@ -23,7 +23,7 @@ public class Graph {
         for (int i = 0; i < E; i++) {
             int v = in.readInt();
             int w = in.readInt();
-
+            addEdge(v, w);
         }
     }
 
@@ -42,7 +42,7 @@ public class Graph {
     }
 
     public Iterable<Integer> adj(int v) {
-        return adj(v);
+        return adj[v];
     }
 
     @Override
