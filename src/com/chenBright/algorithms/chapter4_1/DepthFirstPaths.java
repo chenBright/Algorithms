@@ -16,7 +16,7 @@ public class DepthFirstPaths {
         dfs(G, s);
     }
 
-    public void dfs(Graph G, int v) {
+    private void dfs(Graph G, int v) {
         marked[v] = true;
         for (int w : G.adj(v)) {
             if (!marked[w]) {
