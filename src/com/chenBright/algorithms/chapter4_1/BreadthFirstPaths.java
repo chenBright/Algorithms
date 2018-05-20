@@ -1,7 +1,9 @@
 package com.chenBright.algorithms.chapter4_1;
 
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.Queue;
 import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 public class BreadthFirstPaths {
     private boolean[] marked;
@@ -45,5 +47,24 @@ public class BreadthFirstPaths {
         }
         path.push(s);
         return path;
+    }
+
+    public static void main() {
+        Graph G = new Graph(new In("./data/tinyCG.txt"));
+        int s = 0;
+        BreadthFirstPaths search = new BreadthFirstPaths(G, s);
+        for (int v = 0; v < G.V(); v++) {
+            StdOut.print(s + " to " + v + ": ");
+            if (search.hasPathTo(v)) {
+                for (int x : search.pathTo(v)) {
+                    if (x == s) {
+                        StdOut.print(x);
+                    } else {
+                        StdOut.print("-" + x);
+                    }
+                }
+            }
+            StdOut.println();
+        }
     }
 }
