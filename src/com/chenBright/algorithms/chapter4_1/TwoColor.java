@@ -3,6 +3,7 @@ package com.chenBright.algorithms.chapter4_1;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+// 二分图（双色问题）
 public class TwoColor {
     private boolean[] marked;
     private boolean[] color;
