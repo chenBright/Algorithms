@@ -2,6 +2,7 @@ package com.chenBright.algorithms.chapter4_1;
 
 import com.chenBright.algorithms.chapter1_3.Bag;
 import edu.princeton.cs.algs4.In;
+import edu.princeton.cs.algs4.Stack;
 
 public class Graph {
     private final int V; // 顶点数目
@@ -24,6 +25,24 @@ public class Graph {
             int v = in.readInt();
             int w = in.readInt();
             addEdge(v, w);
+        }
+    }
+
+    /**
+     * 习题 4.1.43
+     * @param G
+     */
+    public Graph(Graph G) {
+        this(G.V());
+        E = G.E();
+        for (int v = 0; v < G.V(); v++) {
+            Stack<Integer> stack = new Stack<>();
+            for (int w : G.adj(v)) {
+                stack.push(w);
+            }
+            for (int w : stack) {
+                G.addEdge(v, w);
+            }
         }
     }
 
