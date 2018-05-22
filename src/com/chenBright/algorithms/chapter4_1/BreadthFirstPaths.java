@@ -8,11 +8,13 @@ import edu.princeton.cs.algs4.StdOut;
 public class BreadthFirstPaths {
     private boolean[] marked;
     private int[] edgeTo;
+    private int[] distTo; // Add for Exercise 4.1.13
     private final int s;
 
     public BreadthFirstPaths(Graph G, int s) {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
+        distTo = new int[G.V()]; // Add for Exercise 4.1.13
         this.s = s;
         bfs(G, s);
     }
@@ -21,12 +23,22 @@ public class BreadthFirstPaths {
         Queue<Integer> queue = new Queue<>();
         marked[s] = true;
         queue.enqueue(s);
+        /**
+         * Add for Exercise 4.1.13
+         * 初始化
+         */
+        for (int v = 0; v < G.V(); v++) {
+            distTo[v] = Integer.MAX_VALUE;
+        }
+        // 起点为0
+        distTo[s] = 0;
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
             for (int w : G.adj(v)) {
                 if (!marked[w]) {
                     marked[w] = true;
                     edgeTo[w] = v;
+                    distTo[w] = distTo[v] + 1;
                     queue.enqueue(w);
                 }
             }
@@ -35,6 +47,10 @@ public class BreadthFirstPaths {
 
     public boolean hasPathTo(int v) {
         return marked[v];
+    }
+
+    public int distTo(int v, int w) {
+        return distTo[v];
     }
 
     public Iterable<Integer> pathTo(int v) {
