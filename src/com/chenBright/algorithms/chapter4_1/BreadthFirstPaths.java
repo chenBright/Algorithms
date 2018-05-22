@@ -49,7 +49,7 @@ public class BreadthFirstPaths {
         return marked[v];
     }
 
-    public int distTo(int v, int w) {
+    public int distTo(int v) {
         return distTo[v];
     }
 
