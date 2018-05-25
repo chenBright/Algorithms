@@ -12,6 +12,7 @@ public class KosarajuSCC {
         for (int s : order.reversePost()) {
             if (!marked[s]) {
                 dfs(G, s);
+                count++;
             }
         }
     }
