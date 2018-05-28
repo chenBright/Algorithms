@@ -1,7 +1,5 @@
 package com.chenBright.algorithms;
 
-import com.chenBright.algorithms.chapter1_4.Ex1_4_34.Player;
-import com.chenBright.algorithms.chapter4_3.LazyPrimMST;
 import edu.princeton.cs.algs4.StdOut;
 
 import com.chenBright.algorithms.chapter1_1.*;
@@ -20,6 +18,7 @@ import com.chenBright.algorithms.chapter3_1.*;
 import com.chenBright.algorithms.chapter3_2.*;
 import com.chenBright.algorithms.chapter4_1.*;
 import com.chenBright.algorithms.chapter4_2.*;
+import com.chenBright.algorithms.chapter4_3.*;
 
 public class Main {
 
