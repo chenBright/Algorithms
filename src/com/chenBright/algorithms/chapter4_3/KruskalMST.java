@@ -30,4 +30,15 @@ public class KruskalMST {
     public Iterable<Edge> edges() {
         return mst;
     }
+
+    /**
+     * 习题 4.3.31
+     */
+    public double weight() {
+        double weight = 0.0;
+        for (Edge e : mst) {
+            weight += e.weight();
+        }
+        return weight;
+    }
 }

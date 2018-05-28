@@ -58,4 +58,12 @@ public class PrimMST {
         }
         return mst;
     }
+
+    public double weight() {
+        double weight = 0.0;
+        for (Edge e : edgeTo) {
+            weight += e.weight();
+        }
+        return weight;
+    }
 }
