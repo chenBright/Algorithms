@@ -1,5 +1,6 @@
 package com.chenBright.algorithms.chapter4_3;
 
+import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.IndexMinPQ;
 
 public class PrimMST {
@@ -45,5 +46,16 @@ public class PrimMST {
                 }
             }
         }
+    }
+
+    /**
+     * 习题 4.3.21
+     */
+    public Iterable<Edge> edges() {
+        Bag<Edge> mst = new Bag<>();
+        for (Edge e : edgeTo) {
+            mst.add(e);
+        }
+        return mst;
     }
 }
