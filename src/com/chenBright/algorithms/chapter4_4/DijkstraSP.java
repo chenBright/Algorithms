@@ -1,7 +1,9 @@
 package com.chenBright.algorithms.chapter4_4;
 
+import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.IndexMinPQ;
 import edu.princeton.cs.algs4.Stack;
+import edu.princeton.cs.algs4.StdOut;
 
 public class DijkstraSP {
     private DirectedEdge[] edgeTo;
@@ -57,5 +59,23 @@ public class DijkstraSP {
             path.push(e);
         }
         return path;
+    }
+
+    public static void main(String[] args) {
+        String file = "./data/tinyEWD";
+        EdgeWeightedDigraph G = new EdgeWeightedDigraph(new In(file));
+        int s = Integer.parseInt(args[1]);
+        DijkstraSP sp = new DijkstraSP(G, s);
+
+        for (int t = 0; t < G.V(); t++) {
+            StdOut.print(s + " to " + t);
+            StdOut.printf(" (%4.2f): ", sp.distTo(t));
+            if (sp.hasPathTo(t)) {
+                for (DirectedEdge e : sp.pathTo(t)) {
+                    StdOut.print(e + "   ");
+                }
+            }
+            StdOut.println();
+        }
     }
 }
