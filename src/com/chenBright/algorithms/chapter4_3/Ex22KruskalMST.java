@@ -25,7 +25,7 @@ public class Ex22KruskalMST {
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
             Edge e = pq.delMin();
             int v = e.either();
-            int w = e.other(w);
+            int w = e.other(v);
             if (uf.connected(v, w)) {
                 continue;
             }
