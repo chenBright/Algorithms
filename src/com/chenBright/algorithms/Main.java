@@ -19,13 +19,14 @@ import com.chenBright.algorithms.chapter3_2.*;
 import com.chenBright.algorithms.chapter4_1.*;
 import com.chenBright.algorithms.chapter4_2.*;
 import com.chenBright.algorithms.chapter4_3.*;
+import com.chenBright.algorithms.chapter4_4.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        LazyPrimMST.main();
+        CPM.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
