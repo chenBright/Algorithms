@@ -29,7 +29,7 @@ public class Main {
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        BoyerMoore.main();
+        KMPNext.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }

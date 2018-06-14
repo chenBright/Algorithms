@@ -46,9 +46,9 @@ public class BoyerMoore {
     public static void main() {
         String pat = "ABABAC";
         String txt = "BCBAABACAABABACAA";
-        KMP kmp = new KMP(pat);
+        BoyerMoore boyerMoore = new BoyerMoore(pat);
         StdOut.println("text:    " + txt);
-        int offset = kmp.search(txt);
+        int offset = boyerMoore.search(txt);
         StdOut.print("pattern: ");
         for (int i = 0; i < offset; i++) {
             StdOut.print(" ");
