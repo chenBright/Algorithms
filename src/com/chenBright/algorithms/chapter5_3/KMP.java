@@ -2,6 +2,7 @@ package com.chenBright.algorithms.chapter5_3;
 
 import edu.princeton.cs.algs4.StdOut;
 
+// KMP DFA实现
 public class KMP {
     private String pat;
     private int[][] dfa;

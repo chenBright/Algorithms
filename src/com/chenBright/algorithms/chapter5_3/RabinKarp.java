@@ -72,9 +72,9 @@ public class RabinKarp {
     public static void main() {
         String pat = "ABABAC";
         String txt = "BCBAABACAABABACAA";
-        KMP kmp = new KMP(pat);
+        RabinKarp rabinKarp = new RabinKarp(pat);
         StdOut.println("text:    " + txt);
-        int offset = kmp.search(txt);
+        int offset = rabinKarp.search(txt);
         StdOut.print("pattern: ");
         for (int i = 0; i < offset; i++) {
             StdOut.print(" ");
