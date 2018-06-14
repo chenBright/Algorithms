@@ -24,7 +24,7 @@ public class BoyerMoore {
         int N = txt.length();
         int M = pat.length();
         int skip;
-        for (int i = 0; i < N - M; i++) {
+        for (int i = 0; i < N - M; i += skip) {
             // 模式字符串和文本在位置i匹配吗？
             skip = 0;
             for (int j = M - 1; j >= 0; j--) {
