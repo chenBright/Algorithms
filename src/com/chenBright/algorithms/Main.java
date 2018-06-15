@@ -23,13 +23,14 @@ import com.chenBright.algorithms.chapter4_4.*;
 import com.chenBright.algorithms.chapter5_1.*;
 import com.chenBright.algorithms.chapter5_2.*;
 import com.chenBright.algorithms.chapter5_3.*;
+import com.chenBright.algorithms.chapter5_4.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
         StdOut.println("算法4");
-        KMPNext.main();
+        GREP.main();
 //        Ex1_4_19 ex = new Ex1_4_19();
 //        ex.main();
     }
